@@ -1,0 +1,39 @@
+name: conapp
+description: A new Flutter application.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  geolocator: ^3.0.1
+  http: ^0.12.0+2
+  flutter_spinkit: ^3.1.0
+  url_launcher: ^5.1.2
+  material_design_icons_flutter: ^3.2.3895
+  menu_button: ^1.2.1
+  popup_menu: ^1.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/conAPP.jfif
+    - assets/D.jpg
+
+  fonts:
+    - family: Tajawal
+      fonts:
+        - asset: fonts/Tajawal-Regular.ttf
+        - asset: fonts/Tajawal-Bold.ttf
+          style: italic
