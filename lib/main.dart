@@ -49,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-
           PopupMenuButton(
             offset: Offset(0, 100),
               onCanceled: () {
@@ -68,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment:MainAxisAlignment.spaceBetween,
                       textDirection: TextDirection.rtl,
                       children: <Widget>[
-                        Text("تواصل معنا ",style: TextStyle(
+                        Text("تواصل معنا",style: TextStyle(
                           fontSize: 20,
                           color: Colors.black,
                           fontFamily: "Tajawal",
@@ -80,23 +79,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 );
-
                 return list;
               }),
         ],
         backgroundColor: Color(0xFF38A4C0),
         title: Center(
-          child: Text(
-            "كون للتقنية",
-            style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Tajawal"),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 60),
+            child: Text(
+              "كون للتقنية",
+              style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  
+                  fontFamily: "Tajawal"),
+            ),
           ),
         ),
       ),
       body: Stack(
-        fit: StackFit.expand,
+      fit: StackFit.expand,
         children: <Widget>[
           SingleChildScrollView(
             child: Container(
@@ -110,85 +112,56 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  Center(
                     child: CardButton(
                       onTap: () {
                         customLaunch('http://Con.sa');
                       },
-                      buttonTitle: "صفحة الموقع ",
+                      buttonTitle: "صفحة الموقع",
                       icon: Icons.language,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CardButton(
-                      onTap: () {
-                        customLaunch('https://goo.gl/maps/RUGn7eFfW2TaRrgt7');
-                      },
-                      buttonTitle: "موقع الشركة",
-                      icon: Icons.location_on,
-                    ),
+                  CardButton(
+                    onTap: () {
+                      customLaunch('https://goo.gl/maps/RUGn7eFfW2TaRrgt7');
+                    },
+                    buttonTitle: "موقع الشركة",
+                    icon: Icons.location_on,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CardButton(
-                      onTap: () {
-                        customLaunch('tel:00966506128258');
-                      },
-                      buttonTitle: " رقم الاتصال",
-                      icon: Icons.phone_in_talk,
-                    ),
+                  CardButton(
+                    onTap: () {
+                      customLaunch('tel:00966506128258');
+                    },
+                    buttonTitle: "رقم الاتصال",
+                    icon: Icons.phone_in_talk,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CardButton(
-                      onTap: () {
-                        customLaunch(
-                            'https://api.whatsapp.com/send?phone=+966506128258&text=Welcome');
-                      },
-                      buttonTitle: "رقم الواتس اب",
-                      icon: MdiIcons.whatsapp,
-                    ),
+                  CardButton(
+                    onTap: () {
+                      customLaunch(
+                           'https://api.whatsapp.com/send?phone=+966506128258&text=Welcome');
+                    },
+                    buttonTitle: "رقم الواتس اب",
+                    icon: MdiIcons.whatsapp,
+                  ),
+                  SizedBox(
+                    height: 10,
                   ),
                   Card(
-                    shadowColor: Colors.white,
-                    color: Colors.amber,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(3)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          color: Color(0xFF38A4C6),
-                          width: 320,
-                          height: 200,
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                "مواعيد العمل ",
-                                style: buttonText,
-                              ),
-                              Text(
-                                "من الاحد الى الخميس : من الساعة 9 صباحا حتى 10 مساء",
-                                textDirection: TextDirection.rtl,
-                                style: buttonText2,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "يوم الجمعه من الساعة 1 مساء  حتى 10 مساء",
-                                textDirection: TextDirection.rtl,
-                                style: buttonText2,
-                              ),
-                            ],
+                       shadowColor: Colors.white,
+                        color: Color(0xFF38A4C6),
+                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            "مواعيد العمل ",
+                            style: buttonText,
                           ),
-                        ),
+                          NextTest(LastText: "من الاحد الى الخميس : من الساعة 9 صباحا حتى 10 مساء",),
+                         NextTest(LastText: "يوم الجمعه من الساعة 1 مساء  حتى 10 مساء ",),
+                        ],
                       ),
                     ),
-                  ),
+
                 ],
               ),
             ),
@@ -198,6 +171,26 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class NextTest extends StatelessWidget {
+  NextTest ({@required this.LastText});
+   final String LastText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+       width: 320,
+          height: 100,
+       child:Padding(
+         padding: const EdgeInsets.all(10.0),
+         child: Text(LastText,
+         textDirection: TextDirection.rtl,
+          style: buttonText2,
+    ),
+       ));
+  }
+}
+
 
 
 class CardButton extends StatelessWidget {
@@ -209,37 +202,46 @@ class CardButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shadowColor: Colors.white,
-      color: Color(0xFF38A4C6),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-      child: InkWell(
-
-        onTap: onTap,
-        child: Container(
-          width: 320,
-          height: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Icon(
-                icon,
-                size: 60,
-                color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Center(
+        child: Card(
+          shadowColor: Colors.white,
+          color: Color(0xFF38A4C6),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          child: InkWell(
+            onTap: onTap,
+            child: Container(
+              width: 320,
+              height: 100,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                Container(
+                  child: Center(
+                    child: Icon(
+                      
+                      icon,
+                      size: 55,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                     
+                Text(
+                  buttonTitle,
+                 textDirection: TextDirection.rtl,
+                  style: buttonText,
+                ),
+                    ],
+                  ),
               ),
-              Align(
-                alignment: Alignment.centerRight,
-              ),
-              Text(
-                buttonTitle,
-                textDirection: TextDirection.ltr,
-                style: buttonText,
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-
