@@ -138,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   CardButton(
                     onTap: () {
                       customLaunch(
-                          'https://api.whatsapp.com/send?phone=+966506128258&text=Welcome');
+                           'https://api.whatsapp.com/send?phone=+966506128258&text=Welcome');
                     },
                     buttonTitle: "رقم الواتس اب",
                     icon: MdiIcons.whatsapp,
